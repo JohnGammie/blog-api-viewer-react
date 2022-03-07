@@ -1,0 +1,18 @@
+.pageContent {
+  display: flex;
+  justify-content: center;
+}
+
+.signOutButtons {
+  display: flex;
+  gap: 18px;
+}
+
+#yes,
+#no {
+  font-size: 36px;
+}
+
+#no {
+  background-color: salmon;
+}

@@ -2,12 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PostListView = (props) => {
-  const handleClick = () => {
-    console.log(props._id);
-  };
-
   return (
-    <li onClick={handleClick}>
+    <li>
       <Link
         to={{
           pathname: `post/${props._id}`,

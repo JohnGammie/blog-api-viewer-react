@@ -8,7 +8,14 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const signInOrOut = () => {
+    if (props.signedIn) {
+      return <NavBtnLink to="/signout">Sign out</NavBtnLink>;
+    }
+    return <NavBtnLink to="/signin">Sign In</NavBtnLink>;
+  };
+
   return (
     <>
       <Nav>
@@ -18,9 +25,7 @@ const Navbar = () => {
           <NavLink to="/posts">Posts</NavLink>
           <NavLink to="/about">About</NavLink>
         </NavMenu>
-        <NavBtn>
-          <NavBtnLink to="/signin">Sign In</NavBtnLink>
-        </NavBtn>
+        <NavBtn>{signInOrOut()}</NavBtn>
       </Nav>
     </>
   );
