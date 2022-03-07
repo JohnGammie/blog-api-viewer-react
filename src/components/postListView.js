@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PostListView = (props) => {
   const handleClick = () => {
@@ -7,7 +8,14 @@ const PostListView = (props) => {
 
   return (
     <li onClick={handleClick}>
-      {props.title} by {props.author}
+      <Link
+        to={{
+          pathname: `post/${props._id}`,
+          state: { id: props._id },
+        }}
+      >
+        {props.title} by {props.author}
+      </Link>
     </li>
   );
 };

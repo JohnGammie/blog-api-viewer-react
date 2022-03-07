@@ -1,0 +1,8 @@
+.comment {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.comment:nth-child(odd) {
+  background: lightgray;
+}
