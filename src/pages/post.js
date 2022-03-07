@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import PostComponent from "../components/postComponent";
 import Comment from "../components/comment";
+import CommentInput from "../components/commentInput";
 
 const Post = (props) => {
   const [response, setResponse] = useState();
@@ -36,6 +37,7 @@ const Post = (props) => {
         {response.comments.map((comment) => {
           return (
             <Comment
+              key={comment._id}
               content={comment.content}
               username={comment.username}
               created={comment.created}
@@ -43,6 +45,7 @@ const Post = (props) => {
           );
         })}
       </div>
+      <CommentInput id={id} reloadPage={fetchPostDetails} />
     </div>
   );
 };

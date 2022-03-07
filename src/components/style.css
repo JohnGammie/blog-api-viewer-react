@@ -1,8 +1,31 @@
 .comment {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  border: 0.1px solid black;
 }
 
 .comment:nth-child(odd) {
   background: lightgray;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.commentInputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 12px;
+}
+
+.commentInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentInput label {
+  align-self: center;
 }
