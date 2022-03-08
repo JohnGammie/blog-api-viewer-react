@@ -4,7 +4,6 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/index";
-import About from "./pages/about";
 import Posts from "./pages/posts";
 import Post from "./pages/post";
 import SignIn from "./pages/signin";
@@ -24,7 +23,6 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/posts" element={<Posts />} />
-          <Route path="/about" element={<About />} />
           <Route path="/posts/post/:id" element={<Post />}></Route>
           <Route
             path="/signin"

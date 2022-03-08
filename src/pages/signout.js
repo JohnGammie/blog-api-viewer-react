@@ -24,10 +24,8 @@ const SignOut = (props) => {
     })
       .then((res) => {
         res.json();
-        console.log(res);
       })
       .then((data) => {
-        console.log(data);
         localStorage.setItem("accessToken", null);
         props.setSignedIn(false);
         navigate("/");

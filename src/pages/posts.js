@@ -15,7 +15,6 @@ const Posts = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setResponse(data.posts);
       });
   };

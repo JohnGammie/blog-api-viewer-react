@@ -25,7 +25,6 @@ const SignIn = (props) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
-          console.log(data);
           return;
         }
         // Save access token for use in protected requests

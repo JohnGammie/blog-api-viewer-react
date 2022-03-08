@@ -9,7 +9,6 @@ const Post = (props) => {
   const [response, setResponse] = useState();
 
   let { id } = useParams();
-  console.log(id);
 
   const port = 3000;
   const serverUrl = "http://localhost:" + port;
@@ -17,7 +16,6 @@ const Post = (props) => {
     fetch(serverUrl + "/post/postDetails/" + id)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setResponse(data);
       });
   };
