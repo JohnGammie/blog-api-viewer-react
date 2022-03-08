@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import PostListView from "../components/postListView";
+import "./style.css";
 
 const Posts = () => {
   const [response, setResponse] = useState([]);
@@ -25,13 +26,14 @@ const Posts = () => {
 
   return (
     <div>
-      <ul>
+      <ul className="postsList">
         {response.map((item) => (
           <PostListView
             key={item._id}
             _id={item._id}
             title={item.title}
             author={item.author}
+            published={item.published}
           />
         ))}
       </ul>

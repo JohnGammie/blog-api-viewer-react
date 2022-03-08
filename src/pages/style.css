@@ -16,3 +16,20 @@
 #no {
   background-color: salmon;
 }
+
+.postsList {
+  list-style: none;
+}
+
+.postsList li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+  margin: 16px;
+  background-color: rgb(187, 245, 226);
+}
+
+.postsList li a {
+  color: black;
+  text-decoration: none;
+}
