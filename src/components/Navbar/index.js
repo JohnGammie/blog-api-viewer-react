@@ -9,26 +9,44 @@ import {
 } from "./NavbarElements";
 
 const Navbar = (props) => {
-  const signInOrOut = () => {
+  const NavbarContentSetBySignedInStatus = () => {
     if (props.signedIn) {
-      return <NavBtnLink to="/signout">Sign out</NavBtnLink>;
+      return (
+        <>
+          <Nav>
+            <NavLink to="/">Home</NavLink>
+            <Bars />
+            <NavMenu>
+              <NavLink to="/posts">Posts</NavLink>
+              <NavLink to="/about">About</NavLink>
+              <NavLink to="/create">Create</NavLink>
+            </NavMenu>
+            <NavBtn>
+              <NavBtnLink to="/signout">Sign out</NavBtnLink>;
+            </NavBtn>
+          </Nav>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Nav>
+            <NavLink to="/">Home</NavLink>
+            <Bars />
+            <NavMenu>
+              <NavLink to="/posts">Posts</NavLink>
+              <NavLink to="/about">About</NavLink>
+            </NavMenu>
+            <NavBtn>
+              <NavBtnLink to="/signin">Sign In</NavBtnLink>
+            </NavBtn>
+          </Nav>
+        </>
+      );
     }
-    return <NavBtnLink to="/signin">Sign In</NavBtnLink>;
   };
 
-  return (
-    <>
-      <Nav>
-        <NavLink to="/">Home</NavLink>
-        <Bars />
-        <NavMenu>
-          <NavLink to="/posts">Posts</NavLink>
-          <NavLink to="/about">About</NavLink>
-        </NavMenu>
-        <NavBtn>{signInOrOut()}</NavBtn>
-      </Nav>
-    </>
-  );
+  return NavbarContentSetBySignedInStatus();
 };
 
 export default Navbar;

@@ -9,10 +9,13 @@ import Posts from "./pages/posts";
 import Post from "./pages/post";
 import SignIn from "./pages/signin";
 import SignOut from "./pages/signout";
+import Create from "./pages/create";
 
 function App() {
   const accessToken = localStorage.getItem("accessToken");
-  const [signedIn, setSignedIn] = useState(accessToken ? true : false);
+  const [signedIn, setSignedIn] = useState(
+    accessToken != "null" ? true : false
+  );
 
   return (
     <Router>
@@ -31,6 +34,7 @@ function App() {
             path="signout"
             element={<SignOut setSignedIn={setSignedIn} />}
           ></Route>
+          <Route path="/create" element={<Create />}></Route>
         </Routes>
       </div>
     </Router>
