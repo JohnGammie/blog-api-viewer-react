@@ -15,9 +15,7 @@ const Create = () => {
       const titleInput = document.getElementById("titleInput");
       const contentInput = document.getElementById("contentInput");
 
-      const port = 3000;
-      const serverUrl = "http://localhost:" + port;
-      await fetch(serverUrl + "/post/create", {
+      await fetch(process.env.REACT_APP_SERVER_URL + "/post/create", {
         method: "POST",
         headers: {
           Accept: "application/json",

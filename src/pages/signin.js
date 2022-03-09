@@ -8,10 +8,7 @@ const SignIn = (props) => {
     const usernameInput = document.getElementById("usernameInput");
     const passwordInput = document.getElementById("passwordInput");
 
-    const port = 3000;
-    const serverUrl = "http://localhost:" + port;
-
-    await fetch(serverUrl + "/users/login", {
+    await fetch(process.env.REACT_APP_SERVER_URL + "/users/login", {
       method: "POST",
       headers: {
         Accept: "application/json",

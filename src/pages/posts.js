@@ -6,11 +6,8 @@ import "./style.css";
 const Posts = () => {
   const [response, setResponse] = useState([]);
 
-  const port = 3000;
-  const serverUrl = "http://localhost:" + port;
-
   const fetchPostListPublic = () => {
-    fetch(serverUrl + "/post/list/public", {
+    fetch(process.env.REACT_APP_SERVER_URL + "/post/list/public", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -23,7 +20,7 @@ const Posts = () => {
   };
 
   const fetchPostListProtected = () => {
-    fetch(serverUrl + "/post/list/protected", {
+    fetch(process.env.REACT_APP_SERVER_URL + "/post/list/protected", {
       headers: {
         "Content-Type": "application/json",
         authorization: localStorage.getItem("accessToken"),

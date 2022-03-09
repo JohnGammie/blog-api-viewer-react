@@ -5,17 +5,17 @@ const PostListView = (props) => {
   const [isPublished, setIsPublished] = useState(props.published);
 
   const publishPost = async () => {
-    const port = 3000;
-    const serverUrl = "http://localhost:" + port;
-
-    await fetch(serverUrl + "/post/publish?_id=" + props._id, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: localStorage.getItem("accessToken"),
-      },
-      mode: "cors",
-    }).then((data) => {
+    await fetch(
+      process.env.REACT_APP_SERVER_URL + "/post/publish?_id=" + props._id,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: localStorage.getItem("accessToken"),
+        },
+        mode: "cors",
+      }
+    ).then((data) => {
       if (data.status === 200) {
         setIsPublished(true);
       } else {

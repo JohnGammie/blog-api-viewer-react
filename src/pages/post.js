@@ -10,10 +10,8 @@ const Post = (props) => {
 
   let { id } = useParams();
 
-  const port = 3000;
-  const serverUrl = "http://localhost:" + port;
   const fetchPostDetails = async (id) => {
-    fetch(serverUrl + "/post/postDetails/" + id)
+    fetch(process.env.REACT_APP_SERVER_URL + "/post/postDetails/" + id)
       .then((res) => res.json())
       .then((data) => {
         setResponse(data);

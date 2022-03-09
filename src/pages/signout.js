@@ -10,10 +10,7 @@ const SignOut = (props) => {
   };
 
   const logout = async () => {
-    const port = 3000;
-    const serverUrl = "http://localhost:" + port;
-
-    await fetch(serverUrl + "/users/logout", {
+    await fetch(process.env.REACT_APP_SERVER_URL + "/users/logout", {
       method: "POST",
       headers: {
         Accept: "application/json",

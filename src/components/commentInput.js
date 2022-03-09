@@ -2,14 +2,11 @@ import React from "react";
 import "./style.css";
 
 const CommentInput = (props) => {
-  const port = 3000;
-  const serverUrl = "http://localhost:" + port;
-
   const handleSubmit = async () => {
     const usernameInput = document.getElementById("usernameInput");
     const commentInput = document.getElementById("commentInput");
 
-    await fetch(serverUrl + "/post/comment", {
+    await fetch(process.env.REACT_APP_SERVER_URL + "/post/comment", {
       method: "POST",
       headers: {
         Accept: "application/json",
