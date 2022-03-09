@@ -22,6 +22,7 @@ const Create = () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("accessToken"),
         },
         body: JSON.stringify({
           author: authorInput.value,
@@ -31,6 +32,10 @@ const Create = () => {
       }).then((data) => {
         if (data.status === 200) {
           navigate("/posts");
+        } else {
+          alert(
+            "Something went wrong with the Post Creation request. Try again or try sign out & back in"
+          );
         }
       });
     }

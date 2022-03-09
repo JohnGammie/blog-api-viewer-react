@@ -8,9 +8,12 @@ const Posts = () => {
 
   const port = 3000;
   const serverUrl = "http://localhost:" + port;
-  const fetchPostList = () => {
-    fetch(serverUrl + "/post/list", {
-      headers: { "Content-Type": "application/json" },
+
+  const fetchPostListPublic = () => {
+    fetch(serverUrl + "/post/list/public", {
+      headers: {
+        "Content-Type": "application/json",
+      },
       mode: "cors",
     })
       .then((res) => res.json())
@@ -19,8 +22,31 @@ const Posts = () => {
       });
   };
 
+  const fetchPostListProtected = () => {
+    fetch(serverUrl + "/post/list/protected", {
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("accessToken"),
+      },
+      mode: "cors",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error === true) {
+          fetchPostListPublic();
+        } else {
+          setResponse(data.posts);
+        }
+      });
+  };
+
   useEffect(() => {
-    fetchPostList();
+    // If user signed in attempt to fetch Protected list
+    if (localStorage.getItem("accessToken") !== "null") {
+      fetchPostListProtected();
+    } else {
+      fetchPostListPublic();
+    }
   }, []);
 
   return (

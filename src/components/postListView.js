@@ -10,11 +10,18 @@ const PostListView = (props) => {
 
     await fetch(serverUrl + "/post/publish?_id=" + props._id, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("accessToken"),
+      },
       mode: "cors",
     }).then((data) => {
       if (data.status === 200) {
         setIsPublished(true);
+      } else {
+        alert(
+          "Something went wrong with the request. Try sign out & back in for a new Access Token"
+        );
       }
     });
   };
