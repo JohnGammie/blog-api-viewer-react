@@ -13,7 +13,7 @@ import Create from "./pages/create";
 function App() {
   const accessToken = localStorage.getItem("accessToken");
   const [signedIn, setSignedIn] = useState(
-    accessToken != "null" ? true : false
+    accessToken !== "null" && accessToken !== null ? true : false
   );
 
   return (

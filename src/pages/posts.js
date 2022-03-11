@@ -44,6 +44,7 @@ const Posts = () => {
     } else {
       fetchPostListPublic();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
